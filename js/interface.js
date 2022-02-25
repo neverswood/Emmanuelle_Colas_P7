@@ -46,3 +46,15 @@ export function displayRecipes(recipes) {
   const containerRecipe = document.getElementById("container-item");
   containerRecipe.innerHTML = renderRecipes(recipes);
 }
+
+export function renderDropdownList(items) {
+  let result = "";
+  for (let index = 0; index < items.length; index++) {
+    result += `<li class="listbox">${items[index]}</li>`;
+  }
+  return `<ul>${result}</ul>`;
+}
+
+export function renderDropdown(type) {
+  return renderDropdownList(type);
+}
