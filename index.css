@@ -39,6 +39,76 @@
   color: black;
 }
 
+/* recipe item */
+
+.container-item__recipe {
+  list-style: none;
+  border-radius: 5px;
+  margin-top: 40px;
+}
+
+.container-item__div {
+  justify-content: space-between;
+}
+
+.divEmpty {
+  background-color: #c7bebe;
+  height: 178px;
+  border-radius: 5px 5px 0 0;
+}
+
+.recipe {
+  line-height: 1.2;
+  background-color: #e7e7e7;
+  height: 202px;
+  border-radius: 0 0 5px 5px;
+  padding: 0 15px 0 15px;
+}
+
+.recipe__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.recipe__explanation {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: nowrap;
+  font-size: 12px;
+}
+
+.recipe__header h3,
+.recipe__header span {
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.recipe__header span {
+  font-weight: 700;
+}
+
+.recipe__ingrédients {
+  width: 171px;
+  height: 105px;
+  font-weight: 800;
+}
+
+.recipe__ingrédients span {
+  font-weight: 600;
+}
+
+.recipe__description {
+  width: 171px;
+  height: 114px;
+  font-weight: 600;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  -webkit-line-clamp: 8;
+  -webkit-box-orient: vertical;
+  display: -webkit-box;
+}
+
 /* dropdown */
 
 .dropdown {
@@ -83,9 +153,9 @@
   background-color: rgb(35, 119, 245);
 }
 
-.device,
-#input-device,
-.search-device {
+.appliance,
+#input-appliance,
+.search-appliance {
   background-color: rgb(151, 229, 151);
 }
 
@@ -96,7 +166,7 @@
 }
 
 #input-utensils,
-#input-device,
+#input-appliance,
 #input-ingredients {
   width: 600px;
   color: white;
@@ -105,25 +175,25 @@
 }
 
 #input-utensils::placeholder,
-#input-device::placeholder,
+#input-appliance::placeholder,
 #input-ingredients::placeholder {
   color: #f0eeee;
 }
 
 #input-utensils:focus,
-#input-device:focus,
+#input-appliance:focus,
 #input-ingredients:focus {
   outline: none;
 }
 
 #listbox-utensils,
-#listbox-devices,
+#listbox-appliances,
 #listbox-ingredients {
   column-count: 3;
 }
 
 .search-ingredients,
-.search-device,
+.search-appliance,
 .search-utensils {
   display: none;
   font-size: 18px;
@@ -149,4 +219,32 @@
 
 #tag {
   display: flex;
+}
+.tag {
+  padding: 10px;
+  /*color: white;*/
+  align-items: center;
+  font-weight: 600;
+  display: flex;
+  justify-content: space-around;
+  height: 40px;
+  margin-left: 16px;
+  border-radius: 5px;
+}
+
+.spanTag {
+  font-size: 22px;
+  margin: 10px;
+}
+
+.tag-ingredient {
+  background-color: rgb(35, 119, 245);
+}
+
+.tag-appliance {
+  background-color: rgb(151, 229, 151);
+}
+
+.tag-utensil {
+  background-color: tomato;
 }
