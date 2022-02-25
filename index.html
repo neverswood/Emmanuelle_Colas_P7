@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/38e93aa0fe.js" crossorigin="anonymous"
+        integrity="sha384-S/+MWT6KBmX8EtLzHdXl3CANi/xOXTFpQpctjPMfMbD6X5XasySxKrNa9g5qFmWF"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"
+        integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous">
+    <link href="main.css" rel="stylesheet">
+    <title>Les petits plats</title>
+</head>
+
+<body>
+    <header>
+        <div class="container">
+            <div class="row">
+                <div class="col" id="header-logo">
+                    <img src="./assets/logo.png" alt="logo" </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <div class="container">
+        <div class="row searchBar">
+            <div class="col search" id="search-keyword">
+                <label for="searchbar">
+                    <input type="search" id="searchbar"
+                        placeholder="  Rechercher un ingrédient, appareil, ustensiles ou une recette">
+                    <button type="button" id="btnSearch" title="btnSearch"><span><i class="fas fa-search"></i></span>
+                    </button>
+                </label>
+            </div>
+        </div>
+        <div class="row tags" id="tag">
+        </div>
+        <div class="row dropdown">
+            <div class="col-md-1 dropdown_listbox ingredients" id="dropdownIngredients">
+                <div class="dropdown-listbox__name" id="listbox-nameIngredient"><span>Ingrédients</span>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="search-ingredients search-dropdown" id="search-ingredients">
+                    <input type="search" id="input-ingredients" placeholder="Recherche un ingrédient">
+                    <i class="fas fa-chevron-up" id="chevron1"></i>
+                    <div id="listbox-ingredients"></div>
+                </div>
+
+            </div>
+            <div class="col-md-1 dropdown_listbox device" id="dropdownDevice">
+                <div class="dropdown-listbox__name" id="listbox-nameDevice"><span>Appareil</span>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="search-device search-dropdown" id="search-device">
+                    <input type="search" id="input-device" placeholder="Recherche un appareil">
+                    <i class="fas fa-chevron-up" id="chevron2"></i>
+                    <div id="listbox-devices" class="listbox-devices"></div>
+                </div>
+            </div>
+            <div class="col-md-1  dropdown_listbox utensils" id="dropdownUtensils">
+                <div class="dropdown-listbox__name" id="listbox-nameUtensils"><span>ustensiles</span>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="search-utensils search-dropdown" id="search-utensils">
+                    <input type="text" id="input-utensils" placeholder="Recherche un ustensile">
+                    <i class="fas fa-chevron-up" id="chevron3"></i>
+                    <div id="listbox-utensils"></div>
+                </div>
+            </div>
+        </div>
+        <div class="row justify-content-between custom-line" id="container-item"></div>
+
+        <script src="js/index.js" type="module"></script>
+
+</body>
+
+</html>
