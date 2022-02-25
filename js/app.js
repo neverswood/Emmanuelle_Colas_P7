@@ -1,4 +1,5 @@
 import { recipes } from "./data/recipes.js";
+import { displayRecipes } from "./interface.js";
 
 export default class App {
   constructor() {
@@ -6,4 +7,59 @@ export default class App {
     this.selectedTags = [];
     this.keyword = "";
   }
+
+  updateFilteredRecipes() {
+    if (this.keyword.length < 3) {
+      this.filteredRecipes = recipes;
+    } else {
+      this.filteredRecipes = filterRecipesByKeyword(this.keyword);
+    }
+    if (this.filteredRecipes.length > 0) {
+      displayRecipes(this.filteredRecipes);
+    } else {
+      const containerRecipe = document.getElementById("container-item");
+      containerRecipe.innerHTML =
+        "Aucune recette ne correspond à votre critère... vous pouvez chercher 'tarte aux pommes',  'poisson' , etc.";
+    }
+  }
+
+  setKeyword(keyword) {
+    this.keyword = keyword;
+    this.updateFilteredRecipes();
+  }
+}
+
+function filterRecipesByKeyword(keyword) {
+  let results = [];
+  for (let recipesIndex = 0; recipesIndex < recipes.length; recipesIndex++) {
+    const ingredients = recipes[recipesIndex].ingredients;
+    let ingredientMatchKeyword = false;
+    for (
+      let ingredientsIndex = 0;
+      ingredientsIndex < ingredients.length;
+      ingredientsIndex++
+    ) {
+      if (
+        ingredients[ingredientsIndex].ingredient
+          .toLowerCase()
+          .indexOf(keyword.toLowerCase()) !== -1
+      ) {
+        ingredientMatchKeyword = true;
+      }
+    }
+    const nameMatchKeyword =
+      recipes[recipesIndex].name
+        .toLowerCase()
+        .indexOf(keyword.toLowerCase()) !== -1;
+    const descriptionMatchKeyword =
+      recipes[recipesIndex].description
+        .toLowerCase()
+        .indexOf(keyword.toLowerCase()) !== -1;
+
+    if (ingredientMatchKeyword || nameMatchKeyword || descriptionMatchKeyword) {
+      results.push(recipes[recipesIndex]);
+    }
+  }
+
+  return results;
 }
