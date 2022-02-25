@@ -1,0 +1,152 @@
+.container {
+  width: 1386px;
+}
+
+.row {
+  border-bottom: 10px solid white;
+}
+
+#header-logo {
+  height: 100px;
+  display: flex;
+  justify-content: center;
+}
+
+.searchBar {
+  margin: 0;
+}
+
+#searchbar {
+  width: 100%;
+  background-color: rgb(224, 221, 221);
+  border: none;
+  border-radius: 5px 0 0 5px;
+  height: 50px;
+}
+.search label {
+  width: 100%;
+  display: flex;
+}
+
+#btnSearch {
+  background-color: rgb(224, 221, 221);
+  border: none;
+  border-radius: 0 5px 5px 0;
+  width: 30px;
+}
+
+#btnSearch i {
+  color: black;
+}
+
+/* dropdown */
+
+.dropdown {
+  color: white;
+  display: flex;
+  height: 70px;
+  margin: 0;
+}
+
+.dropdown ul {
+  list-style: none;
+  padding: 0;
+  line-height: 30px;
+}
+
+.dropdown_listbox {
+  height: 60px;
+  width: 135px;
+  margin: 0 30px 0 0;
+  border-radius: 5px;
+}
+
+.dropdown-listbox__name {
+  display: flex;
+  padding: 20px 52px 20px 20px;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.dropdown_listbox i {
+  position: absolute;
+  right: 10px;
+}
+
+.fa-chevron-up {
+  padding: 20px;
+}
+
+.ingredients,
+#input-ingredients,
+.search-ingredients {
+  background-color: rgb(35, 119, 245);
+}
+
+.device,
+#input-device,
+.search-device {
+  background-color: rgb(151, 229, 151);
+}
+
+.utensils,
+#input-utensils,
+.search-utensils {
+  background-color: tomato;
+}
+
+#input-utensils,
+#input-device,
+#input-ingredients {
+  width: 600px;
+  color: white;
+  border: none;
+  padding: 17px 0;
+}
+
+#input-utensils::placeholder,
+#input-device::placeholder,
+#input-ingredients::placeholder {
+  color: #f0eeee;
+}
+
+#input-utensils:focus,
+#input-device:focus,
+#input-ingredients:focus {
+  outline: none;
+}
+
+#listbox-utensils,
+#listbox-devices,
+#listbox-ingredients {
+  column-count: 3;
+}
+
+.search-ingredients,
+.search-device,
+.search-utensils {
+  display: none;
+  font-size: 18px;
+  padding: 0 0 15px 15px;
+  z-index: 1;
+  width: 667px;
+  position: relative;
+  right: 15px;
+  border-radius: 5px;
+}
+
+.dropdown-listbox__name-close {
+  display: none;
+}
+
+.search-open {
+  display: block;
+}
+
+.listbox {
+  display: list-item;
+}
+
+#tag {
+  display: flex;
+}
