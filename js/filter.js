@@ -9,18 +9,16 @@ export function filterDropdown(type) {
   let inputSearch = document.getElementById(`input-${type}`);
   let listBoxLi = document.getElementsByClassName("listbox");
   inputSearch.addEventListener("keyup", () => {
-    for (let index = 0; index < listBoxLi.length; index++) {
+    Array.from(listBoxLi).map((listBoxLi) => {
       if (inputSearch.value.length < 3) {
-        listBoxLi[index].style.display = "list-item";
+        listBoxLi.style.display = "list-item";
       } else {
-        if (
-          !listBoxLi[index].innerHTML.toLowerCase().includes(inputSearch.value)
-        ) {
-          listBoxLi[index].style.display = "none";
+        if (!listBoxLi.innerHTML.toLowerCase().includes(inputSearch.value)) {
+          listBoxLi.style.display = "none";
         } else {
-          listBoxLi[index].style.display = "list-item";
+          listBoxLi.style.display = "list-item";
         }
       }
-    }
+    });
   });
 }
