@@ -3,7 +3,9 @@ import { filterDropdown } from "./filter.js";
 
 export function getUtensils(recipes) {
   let ustensilsByRecipes = [];
-  recipes.forEach((recipes) => ustensilsByRecipes.push(recipes.ustensils));
+  for (let index = 0; index < recipes.length; index++) {
+    ustensilsByRecipes.push(recipes[index].ustensils);
+  }
   const allUstensils = ustensilsByRecipes.flat();
   return [...new Set(allUstensils)];
 }
