@@ -147,6 +147,12 @@
   padding: 20px;
 }
 
+/*.ingredients,
+    .device,
+    .utensils {
+      z-index: 1;
+    }*/
+
 .ingredients,
 #input-ingredients,
 .search-ingredients {
@@ -154,8 +160,8 @@
 }
 
 .appliance,
-#input-appliance,
-.search-appliance {
+#input-appliances,
+.search-appliances {
   background-color: rgb(151, 229, 151);
 }
 
@@ -166,7 +172,7 @@
 }
 
 #input-utensils,
-#input-appliance,
+#input-appliances,
 #input-ingredients {
   width: 600px;
   color: white;
@@ -175,13 +181,13 @@
 }
 
 #input-utensils::placeholder,
-#input-appliance::placeholder,
+#input-appliances::placeholder,
 #input-ingredients::placeholder {
   color: #f0eeee;
 }
 
 #input-utensils:focus,
-#input-appliance:focus,
+#input-appliances:focus,
 #input-ingredients:focus {
   outline: none;
 }
@@ -193,7 +199,7 @@
 }
 
 .search-ingredients,
-.search-appliance,
+.search-appliances,
 .search-utensils {
   display: none;
   font-size: 18px;
@@ -203,6 +209,10 @@
   position: relative;
   right: 15px;
   border-radius: 5px;
+}
+
+.close {
+  display: none;
 }
 
 .dropdown-listbox__name-close {

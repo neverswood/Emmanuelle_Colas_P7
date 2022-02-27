@@ -1,4 +1,5 @@
 import { displayCloseDropdown, displayDropdown } from "./dropdown.js";
+import { filterDropdown } from "./filter.js";
 
 export function getUtensils(recipes) {
   let ustensilsByRecipes = [];
@@ -13,6 +14,7 @@ export function bindUtensilsDropdownEventListeners(app) {
   const listBox = document.getElementById("listbox-utensils");
 
   dropdownUtensils.addEventListener("click", () => {
+    filterDropdown("utensils");
     const utensils = getUtensils(app.filteredRecipes);
     displayDropdown("utensils", utensils);
   });
