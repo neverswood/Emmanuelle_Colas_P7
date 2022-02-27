@@ -3,7 +3,7 @@ import { displayCloseDropdown } from "./dropdown.js";
 import { bindAppliancesDropdownEventListeners } from "./dropdownAplliance.js";
 import { bindIngredientsDropdownEventListeners } from "./dropdownIngredient.js";
 import { bindUtensilsDropdownEventListeners } from "./dropdownUtensils.js";
-import { keyWord } from "./filter.js";
+import { bindKeyWordEventListeners } from "./filter.js";
 import { displayRecipes } from "./interface.js";
 
 function index() {
@@ -21,9 +21,19 @@ function index() {
     }
   });
   displayRecipes(app.filteredRecipes);
-  keyWord(app);
+  bindKeyWordEventListeners(app);
   bindAppliancesDropdownEventListeners(app);
   bindIngredientsDropdownEventListeners(app);
   bindUtensilsDropdownEventListeners(app);
 }
 index();
+
+function bindRemoveTagEventListener(app) {
+  let tag = document.getElementById("tag");
+  tag.addEventListener("click", (e) => {
+    if (!e.target.matches(".tag *")) {
+      return;
+    }
+    app.toggleTag(e.target.closest(".tag").dataset["tag"]);
+  });
+}

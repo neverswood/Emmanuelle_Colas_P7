@@ -1,5 +1,5 @@
 import { recipes } from "./data/recipes.js";
-import { displayRecipes } from "./interface.js";
+import { displayRecipes, displayTags } from "./interface.js";
 
 export default class App {
   constructor() {
@@ -25,6 +25,23 @@ export default class App {
 
   setKeyword(keyword) {
     this.keyword = keyword;
+    this.updateFilteredRecipes();
+  }
+
+  toggleTag(tag, tagType) {
+    const tagIndex = this.selectedTags.findIndex(
+      (selectedTag) => selectedTag.name === tag
+    );
+
+    if (tagIndex === -1) {
+      this.selectedTags.push({
+        type: tagType,
+        name: tag,
+      });
+    } else {
+      this.selectedTags.splice(tagIndex, 1);
+    }
+    displayTags(this.selectedTags);
     this.updateFilteredRecipes();
   }
 }

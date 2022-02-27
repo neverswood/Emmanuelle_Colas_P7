@@ -58,3 +58,25 @@ export function renderDropdownList(items) {
 export function renderDropdown(type) {
   return renderDropdownList(type);
 }
+
+export function renderTag(tag) {
+  return `
+    <div class="tag ${tag.type}" data-tag="${tag.name}">
+      ${tag.name}
+      <span class="spanTag" ><i class="far fa-times-circle circle"></i></span>
+    </div>
+    `;
+}
+
+export function renderTags(tags) {
+  let result = "";
+  for (let tagsIndex = 0; tagsIndex < tags.length; ++tagsIndex) {
+    result += renderTag(tags[tagsIndex]);
+  }
+  return result;
+}
+
+export function displayTags(tags) {
+  const tag = document.getElementById("tag");
+  tag.innerHTML = renderTags(tags);
+}
