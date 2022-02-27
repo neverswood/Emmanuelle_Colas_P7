@@ -1,19 +1,16 @@
 function renderIngredients(ingredients) {
   let item = "";
-  for (let index = 0; index < ingredients.length; index++) {
-    item += `<li>${ingredients[index].ingredient}: 
-          <span>${ingredients[index].quantity ?? ""} ${
-      ingredients[index].unit ?? ""
-    }</span></li>`;
-  }
+  ingredients.forEach(
+    (ingredient) =>
+      (item += `<li>${ingredient.ingredient}: 
+    <span>${ingredient.quantity ?? ""} ${ingredient.unit ?? ""}</span></li>`)
+  );
   return item;
 }
 
 export function renderRecipes(recipes) {
   let result = "";
-  for (let index = 0; index < recipes.length; index++) {
-    result += renderRecipe(recipes[index]);
-  }
+  recipes.forEach((recipe) => (result += renderRecipe(recipe)));
   return result;
 }
 
