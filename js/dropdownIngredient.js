@@ -1,4 +1,4 @@
-import { displayDropdown } from "./dropdown.js";
+import { displayCloseDropdown, displayDropdown } from "./dropdown.js";
 
 function getIngredients(recipes) {
   let ingredientByRecipes = [];
@@ -16,8 +16,13 @@ export function bindIngredientsDropdownEventListeners(app) {
   const dropdownIngredients = document.getElementById(
     "listboxName-ingredients"
   );
+  const chevron = document.getElementById("chevron-ingredients");
+
   dropdownIngredients.addEventListener("click", (e) => {
     const ingredients = getIngredients(app.filteredRecipes);
     displayDropdown("ingredients", ingredients);
+  });
+  chevron.addEventListener("click", () => {
+    displayCloseDropdown("ingredients");
   });
 }

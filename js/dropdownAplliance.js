@@ -1,4 +1,4 @@
-import { displayDropdown } from "./dropdown.js";
+import { displayCloseDropdown, displayDropdown } from "./dropdown.js";
 
 export function getAppliances(recipes) {
   let applianceByRecipes = [];
@@ -11,8 +11,13 @@ export function getAppliances(recipes) {
 
 export function bindAppliancesDropdownEventListeners(app) {
   const dropdownAppliances = document.getElementById("listboxName-appliances");
+  const chevron = document.getElementById("chevron-appliances");
+
   dropdownAppliances.addEventListener("click", () => {
     const appliances = getAppliances(app.filteredRecipes);
     displayDropdown("appliances", appliances);
+  });
+  chevron.addEventListener("click", () => {
+    displayCloseDropdown("appliances");
   });
 }
