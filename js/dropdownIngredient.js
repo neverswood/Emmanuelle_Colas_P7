@@ -3,12 +3,12 @@ import { filterDropdown } from "./filter.js";
 
 function getIngredients(recipes) {
   let ingredientByRecipes = [];
-  recipes.map((recipes) => {
-    const ingredients = recipes.ingredients;
-    ingredients.forEach((ingredients) => {
-      ingredientByRecipes.push(ingredients.ingredient);
-    });
-  });
+  for (let index = 0; index < recipes.length; index++) {
+    const lesingredients = recipes[index].ingredients;
+    for (let i = 0; i < lesingredients.length; i++) {
+      ingredientByRecipes.push(lesingredients[i].ingredient);
+    }
+  }
   const ingredient = ingredientByRecipes.flat();
   return [...new Set(ingredient)];
 }
