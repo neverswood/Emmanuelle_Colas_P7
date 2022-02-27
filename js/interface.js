@@ -46,14 +46,8 @@ export function displayRecipes(recipes) {
 
 export function renderDropdownList(items) {
   let result = "";
-  for (let index = 0; index < items.length; index++) {
-    result += `<li class="listbox">${items[index]}</li>`;
-  }
+  items.forEach((item) => (result += `<li class="listbox">${item}</li>`));
   return `<ul>${result}</ul>`;
-}
-
-export function renderDropdown(type) {
-  return renderDropdownList(type);
 }
 
 export function renderTag(tag) {
