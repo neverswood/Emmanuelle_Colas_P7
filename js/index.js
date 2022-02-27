@@ -24,6 +24,7 @@ function index() {
   bindAppliancesDropdownEventListeners(app);
   bindIngredientsDropdownEventListeners(app);
   bindUtensilsDropdownEventListeners(app);
+  bindRemoveTagEventListener(app);
 }
 index();
 
