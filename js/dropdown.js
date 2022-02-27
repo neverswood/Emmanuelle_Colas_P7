@@ -1,11 +1,11 @@
-import { renderDropdown } from "./interface.js";
+import { renderDropdownList } from "./interface.js";
 
 export function displayDropdown(type, list) {
   const listBox = document.getElementById(`listbox-${type}`);
   document.getElementById(`search-${type}`).style.display = "block";
   document.getElementById(`listboxName-${type}`).style.display = "none";
   document.getElementById(`dropdown-${type}`).style.width = "667px";
-  listBox.innerHTML = renderDropdown(list);
+  listBox.innerHTML = renderDropdownList(list);
 }
 
 export function displayCloseDropdown(type) {

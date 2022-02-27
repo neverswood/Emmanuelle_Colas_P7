@@ -55,10 +55,6 @@ export function renderDropdownList(items) {
   return `<ul>${result}</ul>`;
 }
 
-export function renderDropdown(type) {
-  return renderDropdownList(type);
-}
-
 export function renderTag(tag) {
   return `
     <div class="tag ${tag.type}" data-tag="${tag.name}">
