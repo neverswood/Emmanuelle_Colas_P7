@@ -14,12 +14,10 @@ export default class App {
     } else {
       this.filteredRecipes = filterRecipesByKeyword(this.keyword);
     }
-    console.log('ki1', this.filteredRecipes);
     this.filteredRecipes = filterRecipesByAppliances(
       this.filteredRecipes,
       this.selectedTags
     );
-    console.log('ki', this.filteredRecipes);
     this.filteredRecipes = filterRecipesByUtensils(
       this.filteredRecipes,
       this.selectedTags
