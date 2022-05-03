@@ -8,6 +8,7 @@ export default class App {
     this.keyword = '';
   }
 
+  /* Recondition recipes once strained */
   updateFilteredRecipes() {
     if (this.keyword.length < 3) {
       this.filteredRecipes = recipes;
@@ -35,11 +36,13 @@ export default class App {
     }
   }
 
+  /* Determine a keyword */
   setKeyword(keyword) {
     this.keyword = keyword;
     this.updateFilteredRecipes();
   }
 
+  /* Manufacture a tag */
   toggleTag(tag, tagType) {
     const tagIndex = this.selectedTags.findIndex(
       (selectedTag) => selectedTag.name === tag
@@ -58,6 +61,7 @@ export default class App {
   }
 }
 
+/* Updates keyword filters */
 function filterRecipesByKeyword(keyword) {
   return recipes.filter(
     (recipe) =>
@@ -76,6 +80,7 @@ function filterRecipesByKeyword(keyword) {
   );
 }
 
+/* Updates filters by appliance */
 function filterRecipesByAppliances(recipes, tags) {
   const filterTagsAppliances = tags.filter((tag) => tag.type === 'appliance');
   if (filterTagsAppliances.length === 0) {
@@ -89,6 +94,7 @@ function filterRecipesByAppliances(recipes, tags) {
   );
 }
 
+/* Updates filters by utensil */
 function filterRecipesByUtensils(recipes, tags) {
   const filterTagsUtensils = tags.filter((tag) => tag.type === 'utensils');
   if (filterTagsUtensils.length === 0) {
@@ -99,6 +105,7 @@ function filterRecipesByUtensils(recipes, tags) {
   );
 }
 
+/* Updates filters by ingredient */
 function filterRecipesByIngredients(recipes, tags) {
   const filterTagsIngredients = tags.filter(
     (tag) => tag.type === 'ingredients'
