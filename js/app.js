@@ -1,13 +1,14 @@
-import { recipes } from "./data/recipes.js";
-import { displayRecipes, displayTags } from "./interface.js";
+import { recipes } from './data/recipes.js';
+import { displayRecipes, displayTags } from './interface.js';
 
 export default class App {
   constructor() {
     this.filteredRecipes = recipes;
     this.selectedTags = [];
-    this.keyword = "";
+    this.keyword = '';
   }
 
+  /* Recondition recipes once strained */
   updateFilteredRecipes() {
     if (this.keyword.length < 3) {
       this.filteredRecipes = recipes;
@@ -29,17 +30,19 @@ export default class App {
     if (this.filteredRecipes.length > 0) {
       displayRecipes(this.filteredRecipes);
     } else {
-      const containerRecipe = document.getElementById("container-item");
+      const containerRecipe = document.getElementById('container-item');
       containerRecipe.innerHTML =
         "Aucune recette ne correspond à votre critère... vous pouvez chercher 'tarte aux pommes',  'poisson' , etc.";
     }
   }
 
+  /* Determine a keyword */
   setKeyword(keyword) {
     this.keyword = keyword;
     this.updateFilteredRecipes();
   }
 
+  /* Manufature a tag */
   toggleTag(tag, tagType) {
     const tagIndex = this.selectedTags.findIndex(
       (selectedTag) => selectedTag.name === tag
@@ -58,6 +61,7 @@ export default class App {
   }
 }
 
+/* Updates keyword filters */
 function filterRecipesByKeyword(keyword) {
   let results = [];
   for (let recipesIndex = 0; recipesIndex < recipes.length; recipesIndex++) {
@@ -93,10 +97,11 @@ function filterRecipesByKeyword(keyword) {
   return results;
 }
 
+/* Updates filters by appliance */
 function filterRecipesByAppliances(recipes, tags) {
   let filterTags = [];
   for (let tagsIndex = 0; tagsIndex < tags.length; ++tagsIndex) {
-    if (tags[tagsIndex].type === "appliance") {
+    if (tags[tagsIndex].type === 'appliance') {
       filterTags.push(tags[tagsIndex]);
     }
   }
@@ -126,10 +131,11 @@ function filterRecipesByAppliances(recipes, tags) {
   return results;
 }
 
+/* Updates filters by utensil */
 function filterRecipesByUtensils(recipes, tags) {
   let filterTags = [];
   for (let tagsIndex = 0; tagsIndex < tags.length; ++tagsIndex) {
-    if (tags[tagsIndex].type === "utensils") {
+    if (tags[tagsIndex].type === 'utensils') {
       filterTags.push(tags[tagsIndex]);
     }
   }
@@ -167,10 +173,11 @@ function filterRecipesByUtensils(recipes, tags) {
   return results;
 }
 
+/* Updates filters by ingredient */
 function filterRecipesByIngredients(recipes, tags) {
   let filterTags = [];
   for (let tagsIndex = 0; tagsIndex < tags.length; ++tagsIndex) {
-    if (tags[tagsIndex].type === "ingredients") {
+    if (tags[tagsIndex].type === 'ingredients') {
       filterTags.push(tags[tagsIndex]);
     }
   }
