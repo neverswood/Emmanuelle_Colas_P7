@@ -14,11 +14,14 @@ export default class App {
       this.filteredRecipes = recipes;
     } else {
       this.filteredRecipes = filterRecipesByKeyword(this.keyword);
+      console.log('fil', this.filteredRecipes);
     }
+
     this.filteredRecipes = filterRecipesByAppliances(
       this.filteredRecipes,
       this.selectedTags
     );
+    console.log('app', this.filteredRecipes);
     this.filteredRecipes = filterRecipesByUtensils(
       this.filteredRecipes,
       this.selectedTags
@@ -63,21 +66,33 @@ export default class App {
 
 /* Updates keyword filters */
 function filterRecipesByKeyword(keyword) {
-  return recipes.filter(
-    (recipe) =>
-      recipe.ingredients.some(
-        (ingredients) =>
-          ingredients.ingredient.toLowerCase().indexOf(keyword.toLowerCase()) >
-          -1
-      ) &&
-      recipe.name.some(
-        (name) => name.toLowerCase().indexOf(keyword.toLowerCase()) > -1
-      ) &&
-      recipe.description.some(
-        (description) =>
-          description.toLowerCase().indexOf(keyword.toLowerCase()) > -1
+  let results = [];
+  recipes.filter((recipe) => {
+    let ingredientMatchKeyword = false;
+    let nameMatchKeyword = false;
+    let descriptionMatchKeyword = false;
+    if (
+      recipe.ingredients.some((ingredients) =>
+        ingredients.ingredient.toLowerCase().includes(keyword.toLowerCase())
       )
-  );
+    ) {
+      ingredientMatchKeyword = true;
+    }
+    if (recipe.name.toLocaleLowerCase().includes(keyword.toLocaleLowerCase())) {
+      nameMatchKeyword = true;
+    }
+    if (
+      recipe.description
+        .toLocaleLowerCase()
+        .includes(keyword.toLocaleLowerCase())
+    ) {
+      descriptionMatchKeyword = true;
+    }
+    if (ingredientMatchKeyword || nameMatchKeyword || descriptionMatchKeyword) {
+      results.push(recipe);
+    }
+  });
+  return results;
 }
 
 /* Updates filters by appliance */
